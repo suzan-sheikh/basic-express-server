@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 app.use(cors());
+app.use(express.json());
 
 const port = process.env.PORT || 3000;
 
@@ -23,7 +24,7 @@ app.get("/users", (req, res) => {
 });
 
 app.post("/users", (req, res) => {
-  res.send("user create success");
+  console.log("post request hit", req.body);
 });
 
 app.listen(port, () => {
